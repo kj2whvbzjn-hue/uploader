@@ -42,3 +42,12 @@ old/assets/logo.png
 
 ## 注意
 ブラウザから `api.github.com` に直接接続します。組織ポリシーやPAT設定で拒否される場合があります。
+
+
+## v3 path safety fix
+- ZIP共通ルートは無条件に削除しません。
+- ZIP名と一致する外箱フォルダ（例: `MyGame-main/`）だけ自動除去します。
+- `Assets/`, `ProjectSettings/`, `Packages/`, `.github/` などの実パスはそのまま保持します。
+
+## NO_CHANGES 表示
+同一ZIPを再検証してGitHubとの差分がない場合は、前回のADD/MODIFY/DELETE表示を残さず、現在のファイルを `UNCHANGED` として表示し、配置ボタンを無効化します。
